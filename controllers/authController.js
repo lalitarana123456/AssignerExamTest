@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 
-const generateToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+
 
 //registering user
 exports.createUser = async (req, res) => {
@@ -44,3 +44,14 @@ exports.login = async (req, res) => {
         res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 };
+
+//get Profile 
+exports.getUserProfile = async (req, res) => {
+    try {
+        //looged-in user
+        res.status(200).json({ user: req.user });
+    } catch (error) {
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+};
+
