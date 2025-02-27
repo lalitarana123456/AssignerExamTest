@@ -25,7 +25,7 @@ exports.createUser = async (req, res) => {
 
 exports.login = async (req, res) => {
     const { email, password } = req.body;
-
+    //causing bycrypt undefined, even it is present, need to resolve
     try {
         if (!bcrypt) {
             return res.status(500).json({ message: "bcrypt module is missing" });
