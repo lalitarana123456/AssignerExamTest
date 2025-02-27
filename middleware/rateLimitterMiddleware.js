@@ -8,7 +8,7 @@ const limiter = rateLimit({
         status: 429,
         message: "Too many requests. Please try again later.",
     },
-    headers: true, // Show rate limit info in headers
+    headers: true, // showing rate limit info in headers
 });
 
 module.exports = limiter;
