@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express'); 
 const authRoutes = require('./routes/authRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
+const itemRoutes = require('./routes/itemRoutes');
 
 
 const connectDB = require('./config/db');
@@ -17,6 +18,7 @@ app.use(limiter); // applying rate limiting globally
 //----------------------use part ---------
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/upload/file', uploadRoutes);
+app.use('/api/v1/item', itemRoutes);
 
 
 
